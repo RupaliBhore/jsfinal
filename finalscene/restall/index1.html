@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>U M<span>🧘</span>TTER</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active"><span>🏠</span> Home</a></li>
+                    <li><a href="music.html"><span>🎵</span> Music</a></li>
+                    <li><a href="#scene"><span>🌄</span> Scene</a></li>
+                    <li><a href="#relax"><span>💗</span> Relax & Breathe</a></li>
+                    <li><a href="#talk"><span>💬</span> Talk to Hope</a></li>
+                </ul>
+            </nav>
+        </aside>
+     </div>
+
+
+
+
+
+
+     <main>
+     <section class="music-grid">
+
+
+        <div class="music-card" data-audio="audio1.mp3">
+            <audio src="secbemusic/sunset lake.mp3" controls >
+            </audio>
+            <img src="images/scene/photos/rain-night.jpg" alt="Healing Water">
+            <div class="info">
+                <h3>Healing Water</h3>
+            </div>
+        </div>
+       
+        <!-- Card 1 -->
+        <div class="music-card" data-audio="music/audio1.mp3">
+            <audio src="./music/scene-audio/ice lake.mp3" controls ></audio>
+            <img src="./images/scene/photos/lake-sunset.jpg" alt="Music 1">
+            <div class="info">
+                <h3>Track 1</h3>
+            </div>
+        </div>
+
+          <!-- Card 1 -->
+          <div class="music-card" data-audio="music/audio1.mp3">
+            <audio src="secbemusic/sunset-lake.mp4" controls style="display: none;"></audio>
+            <img src="sceneimg/lake-sunset.jpg" alt="Music 1">
+            <div class="info">
+                <h3>Track 1</h3>
+            </div>
+        </div>
+
+          <!-- Card 1 -->
+          <div class="music-card" data-audio="music/audio1.mp3">
+            <audio src="secbemusic/sunset-lake.mp4" controls style="display: none;"></audio>
+            <img src="sceneimg/lake-sunset.jpg" alt="Music 1">
+            <div class="info">
+                <h3>Track 1</h3>
+            </div>
+        </div>
+
+        <div class="music-card" data-audio="music/audio6.mp3">
+            <img src="images/music6.jpg" alt="Music 6">
+            <div class="info">
+                <h3>Track 6</h3>
+            </div>
+        </div>
+    </section>
+
+
+
+     <!-- Fullscreen Overlay -->
+       <!-- <div id="fullscreen-overlay">
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+        <audio id="fullscreen-audio" controls></audio>
+        <div class="time-options">
+            <button data-time="120">2 Min</button>
+            <button data-time="300">5 Min</button>
+            <button data-time="600">10 Min</button>
+        </div>
+    </div>  -->
+
+
+
+     <!-- Fullscreen Overlay -->
+ <div id="fullscreen-overlay">
+    <button id="exit-button">Exit</button>
+    <img id="fullscreen-image" src="" alt="Fullscreen Image">
+    <audio id="fullscreen-audio" controls autoplay></audio>
+</div>
+
+     
+
+</main>
+
+
+
+
+
+
+
+
+
+
+  
+
+    <!-- <script>
+        const card = document.querySelector(".music-card");
+        const overlay = document.getElementById("fullscreen-overlay");
+        const overlayImage = document.getElementById("fullscreen-image");
+        const overlayAudio = document.getElementById("fullscreen-audio");
+        const exitButton = document.getElementById("exit-button");
+
+        // Open fullscreen on card click
+        card.addEventListener("click", () => {
+            const imgSrc = card.querySelector("img").src;
+            const audioSrc = card.getAttribute("data-audio");
+
+            // Set image and audio in overlay
+            overlayImage.src = imgSrc;
+            overlayAudio.src = audioSrc;
+
+            // Show overlay and play audio
+            overlay.style.display = "flex";
+            overlayAudio.play();
+        });
+
+        // Close fullscreen on exit button click
+        exitButton.addEventListener("click", () => {
+            overlay.style.display = "none";
+            overlayAudio.pause(); // Stop audio
+            overlayAudio.src = ""; // Clear audio source
+        });
+
+        // Close fullscreen when clicking outside the content
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = "none";
+                overlayAudio.pause();
+                overlayAudio.src = "";
+            }
+        });
+    </script> -->
+
+
+     
+
+
+    <script src="index1.js"></script>
+</body>
+</html>

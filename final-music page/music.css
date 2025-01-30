@@ -1,0 +1,273 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0077b6, #00a4d9);
+    color: #fff;
+    display: flex;
+    height: 100vh;
+}
+
+:root {
+    --gradient: linear-gradient(to right bottom, #3bbcec, #575be5);
+    --dark: #082046;
+    --semi-dark: #0f2952;
+    --light: #fff;
+    --link: #1e2ebd;
+}
+
+
+/* nav-bar */
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    background: linear-gradient(240deg, rgba(58, 85, 118, 0.7) 10%, #2c2e44 70%);
+    box-shadow: 3px 5px 6px rgba(45, 55, 68, 0.3);
+    padding: 1.25rem 0.5rem 2rem 0.5rem;
+    z-index: 2;
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.nav-links {
+    flex: 1;
+    margin-top: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    transition: 0.1s ease-in-out;
+    flex: 3;
+}
+
+.nav-icon {
+    font-size: 1.3rem;
+    margin-right: 1.3rem;
+    transition: 0.1s ease;
+}
+
+.nav-text {
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    background: linear-gradient(190deg, rgb(240, 117, 199), rgba(178, 117, 240));
+    color: var(--dark);
+}
+
+.nav-link:hover .nav-icon {
+    transform: scale(1.1);
+}
+
+.active {
+    padding: 0.5rem;
+    background: linear-gradient(190deg, rgb(240, 117, 199), rgba(178, 117, 240));
+    color: var(--dark);
+}
+/* content */
+
+.content {
+    width: 80vw;
+    height: 100%;
+    margin-left: auto;
+}
+
+.home {
+    padding: 0 2rem;
+}
+
+.home .glass-card {
+    z-index: 99;
+    width: 90%;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+#greeting {
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: rgb(245, 230, 230);
+}
+
+.typing {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#name {
+    outline: none;
+    font-weight: 500;
+    color: rgb(245, 230, 230);
+}
+
+/* Sidebar */
+.sidebar {
+    background: #2b2d42;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo span {
+    font-size: 1.2rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+    color: #c3c3c3;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.sidebar nav ul li a.active, 
+.sidebar nav ul li a:hover {
+    background: #ef476f;
+    color: #fff;
+}
+
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 2rem;
+}
+
+.dropdown {
+    padding: 10px;
+    margin: 10px 15px;
+    border-radius: 5px;
+    width: 20%;
+    border: none;
+}
+
+/* Music Grid */
+.music-grid {
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    /* grid-template-columns: auto auto auto; */
+
+   
+    gap: 20px;
+}
+
+.music-card {
+    background: #1f2833;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    
+}
+
+.music-card {
+    background: #1f2833;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    /* text-align: center; */
+}
+
+.music-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.music-card .info {
+    padding: 10px;
+    text-align: center;
+}
+
+.music-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.music-card p {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.music-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Audio Player */
+.audio-player {
+    margin-top: 20px;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+audio {
+    width: 100%;
+    outline: none;
+    border: none;
+}

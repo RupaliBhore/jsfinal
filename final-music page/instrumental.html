@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Page</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+     /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0077b6, #00a4d9);
+    color: #fff;
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #2b2d42;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo span {
+    font-size: 1.2rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+    color: #c3c3c3;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.sidebar nav ul li a.active, 
+.sidebar nav ul li a:hover {
+    background: #ef476f;
+    color: #fff;
+}
+
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 2rem;
+}
+
+.dropdown {
+    padding: 10px;
+    margin: 10px 15px;
+    border-radius: 5px;
+    width: 20%;
+    border: none;
+}
+
+/* Music Grid */
+.music-grid {
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    /* grid-template-columns: auto auto auto; */
+
+   
+    gap: 20px;
+}
+
+.music-card {
+    background: #1f2833;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    
+}
+
+.music-card {
+    background: #1f2833;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    /* text-align: center; */
+}
+
+.music-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.music-card .info {
+    padding: 10px;
+    text-align: center;
+}
+
+.music-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.music-card p {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.music-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Audio Player */
+.audio-player {
+    margin-top: 20px;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+audio {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>U M<span>🧘</span>TTER</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" ><span>🏠</span> Home</a></li>
+                    <li><a href="#music" class="active"><span>🎵</span> Music</a></li>
+                    <li><a href="#scene"><span>🌄</span> Scene</a></li>
+                    <li><a href="#relax"><span>💗</span> Relax & Breathe</a></li>
+                    <li><a href="#talk"><span>💬</span> Talk to Hope</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+    </div>
+    
+    
+        <!-- Main Content -->
+        <main>
+            <header class="header">
+                <h2>Music</h2>
+                <select class="dropdown" id="music-dropdown">
+                    <option value="instrumental.html">Instrumental</option>
+                    <option value="all">All</option>
+                    <option value="relaxing.html" >Nature Melodies</option>
+                    <option value="nature.html">Nature and Instrument</option>
+                    <option value="lofi.html">Lofi</option>
+                    <option value="classical.html">Classical Music</option>
+                   
+                </select>
+            </header>
+            
+            <!-- Music Grid -->
+            <section class="music-grid">
+
+                <div class="music-card" data-audio="audio1.mp3">
+                    <audio src="music/nature-instrument/Aakash Gandhi - Kiss the Sky.mp3" controls style="display: none;"></audio>
+                    <img src="images/music-images/instrumental/kiss the sky.jpg" alt="Kiss the Sky">
+                    <div class="info">
+                        <h3>Kiss the Sky</h3>
+                        <p>Aakash Gandhi</p>
+                    </div>
+                </div>
+
+                <div class="music-card" data-audio="audio1.mp3">
+                    <audio src="music/nature-instrument/wistful-harp.mp3" controls style="display: none;">  
+                         </audio>
+                    <img src="images/music-images/instrumental/wistful harp.jpg" alt="Wistful Harp
+                    Andrew Huang">
+                    <div class="info">
+                        <h3>Wistful Harp</h3>
+                        <p> Andrew Huang</p>
+                           
+                    </div>
+                </div>
+
+                <div class="music-card" data-audio="audio1.mp3">
+                    <audio src="music/nature-instrument/grief-and-emptiness.mp3" controls style="display: none;">
+                    </audio>
+                    <img src="images/music-images/instrumental/grief and emptiness.jpg" alt="Grief and Emptiness
+                    Steve Oxen">
+                    <div class="info">
+                        <h3>Grief and Emptiness</h3>
+                          
+                           
+                    </div>
+                </div>
+
+
+
+                
+                <div class="music-card" data-audio="audio1.mp3">
+                    <audio src="music/nature-instrument/Aakash Gandhi - Falling Snow.mp3" controls style="display: none;">   </audio>
+                    <img src="images/music-images/instrumental/falling snow.jpg" alt="Falling Snow
+                    Aakash Gandhi">
+                    <div class="info">
+                        <h3>Falling Snow
+                            
+                            <p> Aakash Gandhi</p>
+                    </div>
+                </div>
+
+                <div class="music-card" data-audio="audio1.mp3">
+                    <audio src="music/nature-instrument/Aakash Gandhi - Lifting Dreams.mp3" controls style="display: none;">   </audio>
+                    <img src="images/music-images/instrumental/lifting dreams.jpg" alt="Lifting Dreams
+                    Aakash Gandhi">
+                    <div class="info">
+                        <h3>Lifting Dreams</h3>
+                        <p> Aakash Gandhi</p>
+                           
+                    </div>
+                </div>
+
+
+
+                <div class="music-card" data-audio="audio1.mp3">
+                    <audio src="music/nature-instrument/Aakash Gandhi - Heavenly.mp3" controls style="display: none;">   </audio>
+                    <img src="images/music-images/instrumental/heavenly.jpg" alt="Heavenly
+                    Aakash Gandhi">
+                    <div class="info">
+                        <h3>Heavenly</h3>
+                        <p> Aakash Gandhi</p>
+                           
+                    </div>
+                </div>
+
+
+
+
+                <div class="music-card">
+                    <audio src="music/nature-instrument/Simple Sonata - Sir Cubworth.mp3" controls style="display: none;">   </audio>
+                    <img src="images/music-images/instrumental/simple sonata.jpg" alt="
+                    Simple Sonata
+                    Sir Cubworth">
+                    <div class="info">
+                        <h3>
+                            Simple Sonata</h3>
+                            <p> Sir Cubworth</p>
+                           
+                    </div>
+                </div>
+
+
+               
+                </section>
+                </main>
+
+
+
+
+
+
+                <script>
+
+
+                    document.getElementById("music-dropdown").addEventListener("change", function () {
+                            const selectedValue = this.value;
+                    
+                            // Check if the value is not "all" (or any placeholder)
+                            if (selectedValue !== "all") {
+                                // Redirect to the selected page
+                                window.location.href = selectedValue;
+                            }
+                        });
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    const musicCards = document.querySelectorAll(".music-card");
+                    
+                    
+                    
+                    
+                    
+                            
+                                    musicCards.forEach(card => {
+                                        card.addEventListener("click", () => {
+                                            const audio = card.querySelector("audio");
+                                            if (audio.style.display === "none" || !audio.style.display) {
+                                                // Hide all other audio controls
+                                                document.querySelectorAll("audio").forEach(a => {
+                                                    a.style.display = "none";
+                                                    a.pause(); // Stop playing other audios
+                                                });
+                            
+                                                // Show current audio controls
+                                                audio.style.display = "block";
+                                                audio.play(); // Start playing the audio
+                                            } else {
+                                                // Hide current audio controls
+                                                audio.style.display = "none";
+                                                audio.pause(); // Pause the audio
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+                </body>
+
+                </html>

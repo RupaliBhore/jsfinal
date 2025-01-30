@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Music Card</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        .music-card {
+            width: 300px;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            background: white;
+            transition: transform 0.3s;
+        }
+
+        .music-card:hover {
+            transform: scale(1.05);
+        }
+
+        .music-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 10px;
+        }
+
+        #fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        #fullscreen-overlay img {
+            max-width: 90%;
+            max-height: 70%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        #fullscreen-overlay audio {
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        #exit-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        #exit-button:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Single Music Card -->
+    <div class="music-card" data-audio="music/audio1.mp3">
+        <audio  src="secbemusic/sunset lake.mp3"   controls >
+        </audio>
+        <img src="images/scene/photos/rain-night.jpg" alt="Healing Water">
+        <div class="info">
+            <h3>Track 1</h3>
+        </div>
+    </div>
+
+    <div class="music-card" data-audio="audio1.mp3">
+        <audio  src="secbemusic/sunset lake.mp3" id="fullscreen-overlay"  controls >
+        </audio>
+        <img src="images/scene/photos/rain-night.jpg" alt="Healing Water">
+        <div class="info">
+            <h3>Healing Water</h3>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay -->
+    <div id="fullscreen-overlay">
+        <button id="exit-button">Exit</button>
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+        <audio id="fullscreen-audio" controls autoplay></audio>
+    </div>
+
+    <script>
+        const card = document.querySelector(".music-card");
+        const overlay = document.getElementById("fullscreen-overlay");
+        const overlayImage = document.getElementById("fullscreen-image");
+        const overlayAudio = document.getElementById("fullscreen-audio");
+        const exitButton = document.getElementById("exit-button");
+
+        // Card click event
+        card.addEventListener("click", () => {
+            const imgSrc = card.querySelector("img").src;
+            const audioSrc = card.getAttribute("data-audio");
+
+            // Set image and audio in overlay
+            overlayImage.src = imgSrc;
+            overlayAudio.src = audioSrc;
+
+            // Show overlay and play audio
+            overlay.style.display = "flex";
+            overlayAudio.play();
+        });
+
+        // Close overlay on Exit button click
+        exitButton.addEventListener("click", () => {
+            overlay.style.display = "none";
+            overlayAudio.pause(); // Stop audio
+            overlayAudio.src = ""; // Clear audio source
+        });
+
+        // Close overlay when clicking outside content
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = "none";
+                overlayAudio.pause();
+                overlayAudio.src = "";
+            }
+        });
+    </script>
+</body>
+</html>

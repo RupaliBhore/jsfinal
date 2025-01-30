@@ -1,0 +1,159 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Sidebar */
+.sidebar {
+background: #2b2d42;
+width: 250px;
+height: 100%;
+padding: 20px;
+display: flex;
+flex-direction: column;
+}
+
+.logo h1 {
+font-size: 1.8rem;
+font-weight: bold;
+color: #fff;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.logo span {
+font-size: 1.2rem;
+}
+
+.sidebar nav ul {
+list-style: none;
+padding: 0;
+}
+
+.sidebar nav ul li {
+margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+color: #c3c3c3;
+text-decoration: none;
+font-size: 1rem;
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 10px;
+border-radius: 8px;
+transition: background 0.3s;
+}
+
+.sidebar nav ul li a.active, 
+.sidebar nav ul li a:hover {
+background: #ef476f;
+color: #fff;
+}
+
+
+/* Main Content */
+main {
+flex: 1;
+padding: 20px;
+overflow-y: auto;
+}
+
+.header {
+display: flex;
+/* justify-content: center;
+align-items: center; */
+margin-bottom: 20px;
+}
+
+.header h2 {
+font-size: 2rem;
+}
+
+.dropdown {
+padding: 10px;
+margin: 10px 15px;
+border-radius: 5px;
+width: 20%;
+border: none;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.music-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.music-card:hover {
+    transform: scale(1.05);
+}
+
+.music-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Fullscreen overlay */
+#fullscreen-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+#fullscreen-overlay img {
+    max-width: 80%;
+    max-height: 70%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#fullscreen-overlay audio {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.time-options {
+    display: flex;
+    gap: 10px;
+}
+
+.time-options button {
+    padding: 10px 20px;
+    background: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.time-options button:hover {
+    background: #0056b3;
+}
